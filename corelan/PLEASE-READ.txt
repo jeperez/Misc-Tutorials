@@ -1,0 +1,10 @@
+Tutorial	  : https://www.corelan.be
+
+Links 4 debuggers : OllDbg   -> http://www.ollydbg.de/odbg201.zip
+		    Immunity -> https://www.immunityinc.com/products/debugger/
+		    WinDbg   -> https://www.microsoft.com/en-us/download/confirmation.aspx?id=11800
+
+Note		  : All of these snippets and varous notes where created
+                    by following along with the corelan tutorials. Please
+                    follow along at corelans site as shown above. Thank you
+                    Peter Van Eeckhoutte for providing these tutorials.

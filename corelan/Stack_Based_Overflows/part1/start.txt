@@ -1,0 +1,49 @@
+Tutorial Link		: https://www.corelan.be/index.php/2009/07/19/exploit-writing-tutorial-part-1-stack-based-overflows/
+
+Download B4 Starting	:
+
+	Vulnerable software          -> https://www.exploit-db.com/exploits/10374/
+	Virtual CD-ROM Control Panel -> https://www.microsoft.com/en-us/download/details.aspx?id=38780
+	Debuggers used	             -> WinDbg, Immunity Debugger (read PLEASE-READ.txt)
+
+WinDbg Setup		: Your going to need to install the Virtual CD-ROM Control Panel as shown
+                          in the above link. Once the contents of the zipfile have been extracted
+                          go ahead and copy VCdRom.sys into C:\WINDOWS\system32\drivers. Then go
+                          ahead and launch VCdControlTool.exe. Click [Driver Control] -> [Install 
+                          Driver] -> "Select the file we moved {VCdRom.sys}" -> [Start] -> [OK].
+			  With that done go ahead and click [Add Drive] -> [Mount] -> [.ISO IMG]
+                          -> [OK] -> [OK]. With our ISO mounted go ahead and go to the drive letter
+                          added and double click to launch the setup. I went ahead and installed
+                          everything but you just need the debugging tools. Once complete you will
+                          need to "cd" into the directory with windbg and run "windbg -i" example:
+			
+			  C:\WinDDK\7600.16385.1\Debuggers> windbg.exe -I
+			
+			  If everything went well you should recieve "WindDbg was successfully ~".
+                          In order to avoid WinDbg complaining about Symbol files not found, create
+                          a folder in C:\ called "windbgsymbols". Then In WinDbg go to [File] -> 
+			  [Symbol File Path] -> paste the below:
+			
+			  SRV*C:\windbgsymbols*http://msdl.microsoft.com/download/symbols
+			
+			  Close and save. Windbg should now be good to go!
+
+Immunity Debugger	: Not gonna go into this since its like any exe
+
+What is an .rc file?	: Just a resource file used with the metasploit framework to automate usage, 
+                          down below is a usage example:
+
+
+	                          hax0r@wetw0rk:~/sudo msfconsole -r rm-mp3.rc
+	                          ---snip---
+	                          [*] Started reverse TCP handler on X:X 
+	                          [*] Starting the payload handler...
+	                          [*] Encoded stage with x86/shikata_ga_nai
+	                          [*] Sending encoded stage (267 bytes) to X
+	
+	                          Microsoft Windows XP [Version 5.1.2600]
+	                          (C) Copyright 1985-2001 Microsoft Corp.
+
+	                          C:\Program Files\Easy RM to MP3 Converter>
+
+			  I will be using these on most if not all the examples.
